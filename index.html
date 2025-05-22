@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="el">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GMATH</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Ubuntu', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #800080;
+      color: white;
+      padding: 40px 20px 20px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      font-family: 'Ubuntu', sans-serif;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .nav-bar {
+      background-color: #5e005e;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .nav-bar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-bottom 0.3s;
+    }
+
+    .nav-bar a:hover {
+      border-bottom: 2px solid white;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      color: #800080;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #eee;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #800080;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background-color: #5e005e;
+    }
+
+    iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+      }
+
+      iframe {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <h1>GMATH</h1>
+    <p>Μαθηματικά με στυλ – σημειώσεις, βίντεο, μαθημαγικά</p>
+  </header>
+
+ <div class="nav-bar">
+  <a href="#videos">Βίντεο</a>
+  <a href="#notes">Σημειώσεις</a>
+  <a href="#about">Σχετικά</a>
+  <a href="links.html">Χρήσιμοι Σύνδεσμοι</a>
+  <a href="#contact">Επικοινωνία</a>
+</div>
+
+
+  <main>
+
+<section id="about">
+  <h2>Σχετικά με το GMATH</h2>
+  <p>Το GMATH δημιουργήθηκε με σκοπό να προσφέρει μαθηματικό υλικό στους μαθητές Γυμνασίου και Λυκείου και υλικό για ΑΕΠΠ Γ' Λυκείου. Εδώ θα βρείτε βίντεο, σημειώσεις και ασκήσεις οργανωμένες ανά μάθημα και τάξη.</p>
+  <p>Ο δημιουργός της σελίδας είναι απόφοιτος Βιοστατιστικής με αγάπη για τη διδασκαλία των μαθηματικών και την τεχνολογία. Το GMATH είναι αποτέλεσμα προσωπικής δουλειάς και μεράκι για να βοηθήσει μαθητές να μάθουν με τρόπο απλό και ευχάριστο. Σε καμία περίπτωση δεν μπορούν οι ασκήσεις και οι σημειώσεις να αντικαταστήσουν το σχολικό βιβλίο ή την παράδοση μαθημάτων. Είναι απλά υποστηρηκτικό ύλικό που μπορείτε να κατεβάσετε δωρεάν.</p>
+</section>
+
+ <section id="videos">
+  <h2>Βίντεο</h2>
+
+  <div style="text-align: left; margin-bottom: 20px;">
+    <button onclick="toggleVideos('math')">Μαθηματικά</button>
+    <button onclick="toggleVideos('aepp')">ΑΕΠΠ Γ' Λυκείου</button>
+  </div>
+
+  <div id="math-videos" class="video-group" style="display: none;">
+    <h3>Μαθηματικά Γ' Λυκείου – Άσκηση</h3>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/7SBhxnWAoVo" allowfullscreen></iframe>
+    <p><a href="https://www.youtube.com/watch?v=7SBhxnWAoVo" target="_blank">Δες το στο YouTube</a></p>
+
+    <h3>Μαθηματικά Προσανατολισμού Β' Λυκείου</h3>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/zNJtXmg4mms" allowfullscreen></iframe>
+    <p><a href="https://www.youtube.com/watch?v=zNJtXmg4mms" target="_blank">Δες το στο YouTube</a></p>
+  </div>
+
+  <div id="aepp-videos" class="video-group" style="display: none;">
+    <h3>ΑΕΠΠ – Δομή Επιλογής ΑΝ</h3>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/AyYwvuLZj44" allowfullscreen></iframe>
+    <p><a href="https://www.youtube.com/watch?v=AyYwvuLZj44" target="_blank">Δες το στο YouTube</a></p>
+
+    <h3>ΑΕΠΠ – Δομή Επιλογής ΕΠΙΛΕΞΕ</h3>
+    <iframe width="100%" height="400" src="https://www.youtube.com/embed/F-pjwNIQNjk" allowfullscreen></iframe>
+    <p><a href="https://www.youtube.com/watch?v=F-pjwNIQNjk" target="_blank">Δες το στο YouTube</a></p>
+  </div>
+</section>
+
+<script>
+  let currentVisible = null;
+
+  function toggleVideos(category) {
+    const math = document.getElementById('math-videos');
+    const aepp = document.getElementById('aepp-videos');
+
+    if (currentVisible === category) {
+      // Ίδιο κουμπί – κρύψε τα όλα
+      math.style.display = 'none';
+      aepp.style.display = 'none';
+      currentVisible = null;
+    } else {
+      // Εμφάνισε το ζητούμενο και κρύψε το άλλο
+      math.style.display = (category === 'math') ? 'block' : 'none';
+      aepp.style.display = (category === 'aepp') ? 'block' : 'none';
+      currentVisible = category;
+    }
+  }
+</script>
+
+
+
+    <section id="notes">
+      <h2>Σημειώσεις</h2>
+      <ul>
+        <li><a href="math.html">Μαθηματικά</a></li>
+        <li><a href="aepp.html">ΑΕΠΠ Γ' Λυκείου</a></li>
+      </ul>
+    </section>
+
+
+    <section id="contact">
+      <h2>Επικοινωνία</h2>
+      <form action="https://formspree.io/f/mdkgyqaa" method="POST">
+        <label for="name">Όνομα:</label><br>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="_replyto" required><br>
+
+        <label for="message">Μήνυμα:</label><br>
+        <textarea id="message" name="message" rows="5" required></textarea><br>
+
+        <button type="submit">Αποστολή</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 GMATH. Μεράκι για τα μαθηματικά.
+  </footer>
+</body>
+</html>
