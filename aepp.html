@@ -9,81 +9,89 @@
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@700&display=swap" rel="stylesheet">
 
   <style>
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
     body {
-      font-family: 'Segoe UI', 'Ubuntu', sans-serif;
+      font-family: 'Segoe UI','Ubuntu',sans-serif;
       background-color: #f9f9f9;
       color: #333;
-      margin: 0;
-      padding: 0;
     }
-
     header {
       background-color: #800080;
       color: white;
       padding: 30px 20px;
       text-align: center;
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      font-family: 'Ubuntu', sans-serif;
-    }
-
+    header h1 { font-size: 2.5rem; font-family: 'Ubuntu',sans-serif; }
+    header p { margin-top: 5px; opacity: 0.9; }
     nav {
       background-color: #5e005e;
-      padding: 10px;
       text-align: center;
+      padding: 10px;
     }
-
     nav a {
       color: white;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: border-bottom 0.3s;
     }
-
-    nav a:hover {
-      text-decoration: underline;
+    nav a:hover { border-bottom: 2px solid white; }
+    main { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    h2 { color: #800080; margin-bottom: 15px; }
+    .btn-group { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+    .btn-group button {
+      padding: 10px 20px;
+      background: #800080;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s;
     }
-
-    main {
-      padding: 30px 20px;
-      max-width: 900px;
-      margin: 0 auto;
+    .btn-group button:hover { background: #5e005e; }
+    .hidden { display: none; }
+    ul { list-style: square; margin-left: 20px; margin-bottom: 10px; display: none; }
+    ul.visible { display: block; }
+    ul li { margin: 8px 0; }
+    ul li a { color: #333; text-decoration: none; font-weight: 500; }
+    ul li a:hover { color: #800080; text-decoration: underline; }
+    .video-button {
+      margin: 0 0 20px 20px;
+      display: none;
     }
-
-    h2 {
-      color: #800080;
-      margin-bottom: 15px;
+    .video-button.visible {
+      display: block;
     }
-
-    ul {
-      padding-left: 20px;
+    .video-button button {
+      background: #5e005e;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
     }
-
-    li {
-      margin-bottom: 10px;
+    .video-button button:hover {
+      background: #3b003b;
     }
-
-    a.note-link {
-      text-decoration: none;
+    .video-links {
+      list-style: circle;
+      margin-left: 40px;
+      display: none;
+    }
+    .video-links.visible {
+      display: block;
+    }
+    .video-links li a {
       color: #333;
-      font-weight: 500;
+      text-decoration: none;
     }
-
-    a.note-link:hover {
-      text-decoration: underline;
+    .video-links li a:hover {
       color: #800080;
+      text-decoration: underline;
     }
-
-    footer {
-      background-color: #eee;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      color: #666;
-    }
+    footer { background-color: #eee; text-align: center; padding: 20px; margin-top: 40px; color: #666; }
   </style>
 </head>
 
@@ -103,25 +111,115 @@
   <main>
     <section>
       <h2>Σημειώσεις ΑΕΠΠ</h2>
-      <ul>
-        <li><a class="note-link" href="#">Κεφάλαιο 1 – Εισαγωγή στην Πληροφορική</a></li>
-        <li><a class="note-link" href="#">Κεφάλαιο 2 – Ανάλυση Προβλήματος</a></li>
-        <li><a class="note-link" href="#">Κεφάλαιο 3 – Αλγόριθμοι</a></li>
-        <li><a class="note-link" href="#">Κεφάλαιο 4 – Δομές Ελέγχου</a></li>
-        <li><a class="note-link" href="#">Κεφάλαιο 5 – Πίνακες</a></li>
-        <li><a class="note-link" href="#">Ασκήσεις Εξετάσεων</a></li>
-      </ul>
-    </section>
+      <div id="chapter-buttons" class="btn-group">
+        <button data-ch="ch1">Κεφάλαιο 1</button>
+        <button data-ch="ch2">Κεφάλαιο 2</button>
+        <button data-ch="ch3">Κεφάλαιο 3</button>
+        <button data-ch="ch4">Κεφάλαιο 4</button>
+        <button data-ch="ch5">Κεφάλαιο 5</button>
+      </div>
 
-    <section>
-      <h2>Προσεχώς</h2>
-      <p>Εδώ θα προστεθούν βίντεο, λύσεις ασκήσεων και χρήσιμα PDF αρχεία για την καλύτερη κατανόηση της ύλης.</p>
+<!--Κεφάλαιο 1ο-->
+      <ul id="ch1-list">
+        <li><a href="notes/aepp/ch1/εισαγωγη.pdf" target="_blank">Εισαγωγή στην Πληροφορική (PDF)</a></li>
+        <li><a href="notes/aepp/ch1/ιστορια_υπολογιστων.pdf" target="_blank">Ιστορία Υπολογιστών (PDF)</a></li>
+      </ul>
+      <div id="ch1-video" class="video-button">
+        <button data-target="ch1-videos">📺 Σχετικά Βίντεο</button>
+        <ul id="ch1-videos" class="video-links">
+          <li><a href="" target="_blank"><!--Τίτλος Βίντεο 1--></a></li>
+        </ul>
+      </div>
+
+
+<!--Κεφάλαιο 2ο-->
+      <ul id="ch2-list">
+        <li><a href="notes/aepp/ch2/αναλυση_προβληματος.pdf" target="_blank">Ανάλυση Προβλήματος (PDF)</a></li>
+      </ul>
+      <div id="ch2-video" class="video-button">
+        <button data-target="ch2-videos">📺 Σχετικά Βίντεο</button>
+        <ul id="ch2-videos" class="video-links">
+          <li><a href="https://www.youtube.com/watch?v=F-pjwNIQNjk" target="_blank">Δομή Επιλογής Επίλεξε</a></li>
+        </ul>
+      </div>
+
+<!--Κεφάλαιο 3ο-->
+      <ul id="ch3-list">
+        <li><a href="notes/aepp/ch3/αλγοριθμοι.pdf" target="_blank">Αλγόριθμοι (PDF)</a></li>
+      </ul>
+      <div id="ch3-video" class="video-button">
+        <button data-target="ch3-videos">📺 Σχετικά Βίντεο</button>
+        <ul id="ch3-videos" class="video-links">
+          <li><a href="#" target="_blank"><!--Βίντεο για Αλγορίθμους--></a></li>
+        </ul>
+      </div>
+
+
+<!--Κεφάλαιο 4ο-->
+      <ul id="ch4-list">
+        <li><a href="notes/aepp/ch4/δομες_ελεγχου.pdf" target="_blank">Δομές Ελέγχου (PDF)</a></li>
+      </ul>
+      <div id="ch4-video" class="video-button">
+        <button data-target="ch4-videos">📺 Σχετικά Βίντεο</button>
+        <ul id="ch4-videos" class="video-links">
+          <li><a href="#" target="_blank"><!--Βίντεο για Δομές Ελέγχου--></a></li>
+        </ul>
+      </div>
+
+<!--Κεφάλαιο 5ο-->
+      <ul id="ch5-list">
+        <li><a href="notes/aepp/ch5/pinakes.pdf" target="_blank">Πίνακες (PDF)</a></li>
+      </ul>
+      <div id="ch5-video" class="video-button">
+        <button data-target="ch5-videos">📺 Σχετικά Βίντεο</button>
+        <ul id="ch5-videos" class="video-links">
+          <li><a href="" target="_blank"><!--Βίντεο για Πίνακες--></a></li>
+        </ul>
+      </div>
+
     </section>
   </main>
 
   <footer>
     &copy; 2025 GMATH | Υλικό για ΑΕΠΠ με στυλ και απλότητα
   </footer>
+
+  <script>
+    const buttons = document.querySelectorAll('#chapter-buttons button');
+    const lists = document.querySelectorAll('ul[id$="-list"]');
+    const videos = document.querySelectorAll('.video-button');
+    const videoToggles = document.querySelectorAll('.video-button button');
+
+    function hideAll() {
+      lists.forEach(ul => ul.classList.remove('visible'));
+      videos.forEach(div => div.classList.remove('visible'));
+      document.querySelectorAll('.video-links').forEach(list => list.classList.remove('visible'));
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const id = btn.dataset.ch;
+        const list = document.getElementById(id + '-list');
+        const video = document.getElementById(id + '-video');
+
+        const isVisible = list.classList.contains('visible');
+        hideAll();
+
+        if (!isVisible) {
+          list.classList.add('visible');
+          video.classList.add('visible');
+        }
+      });
+    });
+
+    videoToggles.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.target;
+        const list = document.getElementById(targetId);
+        list.classList.toggle('visible');
+      });
+    });
+  </script>
 </body>
 
 </html>
