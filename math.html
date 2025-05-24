@@ -277,95 +277,83 @@
 
 
 
-<script>
-  const levelButtons = document.querySelectorAll('#level-buttons button');
-  const gymnasioButtons = document.getElementById('gymnasio-buttons');
-  const lykeioButtons = document.getElementById('lykeio-buttons');
-  const subjectGroups = document.querySelectorAll('[id$="-subjects"]');
-  const lists = document.querySelectorAll('ul');
+ <script>
+    const levelButtons = document.querySelectorAll('#level-buttons button');
+    const gymnasioButtons = document.getElementById('gymnasio-buttons');
+    const lykeioButtons = document.getElementById('lykeio-buttons');
+    const subjectGroups = document.querySelectorAll('[id$="-subjects"]');
+    const lists = document.querySelectorAll('ul');
 
-  function hideAllLists() {
-    lists.forEach(ul => ul.classList.remove('visible'));
-  }
+    function hideAllLists() {
+      lists.forEach(ul => ul.classList.remove('visible'));
+    }
 
-  function hideAllSubjects() {
-    subjectGroups.forEach(div => div.classList.add('hidden'));
-  }
+    function hideAllSubjects() {
+      subjectGroups.forEach(div => div.classList.add('hidden'));
+    }
 
-  function hideAllGrades() {
-    gymnasioButtons.classList.add('hidden');
-    lykeioButtons.classList.add('hidden');
-  }
+    function hideAllGrades() {
+      gymnasioButtons.classList.add('hidden');
+      lykeioButtons.classList.add('hidden');
+    }
 
-  // Toggle για βαθμίδα (Γυμνάσιο / Λύκειο)
-  levelButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const level = btn.dataset.level;
-      if (
-        (level === 'gymnasio' && !gymnasioButtons.classList.contains('hidden')) ||
-        (level === 'lykeio' && !lykeioButtons.classList.contains('hidden'))
-      ) {
-        hideAllGrades();
-        hideAllSubjects();
-        hideAllLists();
-      } else {
-        hideAllGrades();
-        hideAllSubjects();
-        hideAllLists();
-
-        if (level === 'gymnasio') {
-          gymnasioButtons.classList.remove('hidden');
-        } else if (level === 'lykeio') {
-          lykeioButtons.classList.remove('hidden');
+    // Toggle για βαθμίδα
+    levelButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const level = btn.dataset.level;
+        if (
+          (level === 'gymnasio' && !gymnasioButtons.classList.contains('hidden')) ||
+          (level === 'lykeio' && !lykeioButtons.classList.contains('hidden'))
+        ) {
+          hideAllGrades(); hideAllSubjects(); hideAllLists();
+        } else {
+          hideAllGrades(); hideAllSubjects(); hideAllLists();
+          document.getElementById(level + '-buttons').classList.remove('hidden');
         }
-      }
+      });
     });
-  });
 
-  // Toggle για τάξη
-  const gradeButtons = document.querySelectorAll('.btn-group button[data-grade]');
-  gradeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const grade = btn.dataset.grade;
-      const subjectsDiv = document.getElementById(grade + '-subjects');
-
-      if (subjectsDiv.classList.contains('hidden')) {
-        hideAllSubjects();
-        hideAllLists();
-        subjectsDiv.classList.remove('hidden');
-      } else {
-        subjectsDiv.classList.add('hidden');
-        hideAllLists();
-      }
+    // Toggle για τάξη
+    document.querySelectorAll('#gymnasio-buttons button, #lykeio-buttons button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const grade = btn.dataset.grade;
+        const subjectsDiv = document.getElementById(grade + '-subjects');
+        if (subjectsDiv.classList.contains('hidden')) {
+          hideAllSubjects(); hideAllLists();
+          subjectsDiv.classList.remove('hidden');
+        } else {
+          subjectsDiv.classList.add('hidden'); hideAllLists();
+        }
+      });
     });
-  });
 
-  // Toggle για μάθημα/κεφάλαιο
-  const subjectButtons = document.querySelectorAll('.btn-group button[data-sub]');
-  subjectButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const sub = btn.dataset.sub;
-      const list = document.getElementById(sub + '-list');
-
-      if (!list) return;
-
-      if (list.classList.contains('visible')) {
-        list.classList.remove('visible');
-      } else {
-        hideAllLists();
-        list.classList.add('visible');
-      }
+    // Toggle για μάθημα/κεφάλαιο
+    document.querySelectorAll('.btn-group button[data-sub]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sub = btn.dataset.sub;
+        // Μαθηματικά Προσανατολισμού
+        if (sub === 'lyk2-pros') {
+          const prosGroup = document.getElementById('lyk2-pros-subjects');
+          if (prosGroup.classList.contains('hidden')) {
+            hideAllLists(); hideAllSubjects();
+            prosGroup.classList.remove('hidden');
+          } else {
+            prosGroup.classList.add('hidden');
+          }
+          return;
+        }
+        // Λίστα PDF
+        const list = document.getElementById(sub + '-list');
+        if (!list) return;
+        if (list.classList.contains('visible')) {
+          list.classList.remove('visible');
+        } else {
+          hideAllLists();
+          list.classList.add('visible');
+        }
+      });
     });
-  });
-
-
-  
-  
-
-
-
-  
-</script>
+  </script>
 
 
 
