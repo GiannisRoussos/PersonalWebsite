@@ -329,30 +329,34 @@
 
     // Toggle για μάθημα/κεφάλαιο
     document.querySelectorAll('.btn-group button[data-sub]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const sub = btn.dataset.sub;
-        // Μαθηματικά Προσανατολισμού
-        if (sub === 'lyk2-pros') {
-          const prosGroup = document.getElementById('lyk2-pros-subjects');
-          if (prosGroup.classList.contains('hidden')) {
-            hideAllLists(); hideAllSubjects();
-            prosGroup.classList.remove('hidden');
-          } else {
-            prosGroup.classList.add('hidden');
-          }
-          return;
-        }
-        // Λίστα PDF
-        const list = document.getElementById(sub + '-list');
-        if (!list) return;
-        if (list.classList.contains('visible')) {
-          list.classList.remove('visible');
-        } else {
-          hideAllLists();
-          list.classList.add('visible');
-        }
-      });
-    });
+  btn.addEventListener('click', () => {
+    const sub = btn.dataset.sub;
+
+    // Αν είναι το κουμπί "Μαθηματικά Προσανατολισμού"
+    if (sub === 'lyk2-pros') {
+      const prosGroup = document.getElementById('lyk2-pros-subjects');
+      const isHidden = prosGroup.classList.contains('hidden');
+      hideAllLists();
+      if (isHidden) {
+        prosGroup.classList.remove('hidden');
+      } else {
+        prosGroup.classList.add('hidden');
+      }
+      return;
+    }
+
+    // Όλες οι υπόλοιπες λίστες PDF
+    const list = document.getElementById(sub + '-list');
+    if (!list) return;
+
+    const isVisible = list.classList.contains('visible');
+    hideAllLists();
+    if (!isVisible) {
+      list.classList.add('visible');
+    }
+  });
+});
+
   </script>
 
 
