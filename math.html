@@ -357,6 +357,55 @@
       }
     });
   });
+
+
+  
+  // Εμφάνιση κουμπιών τάξεων ανάλογα με τη βαθμίδα
+  document.querySelectorAll('#level-buttons button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#gymnasio-buttons, #lykeio-buttons').forEach(gr => gr.classList.add('hidden'));
+      document.querySelector(`#${btn.dataset.level}-buttons`).classList.remove('hidden');
+    });
+  });
+
+  // Εμφάνιση θεμάτων ανάλογα με την τάξη
+  document.querySelectorAll('#gymnasio-buttons button, #lykeio-buttons button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('[id$="-subjects"]').forEach(sub => sub.classList.add('hidden'));
+      document.querySelector(`#${btn.dataset.grade}-subjects`)?.classList.remove('hidden');
+    });
+  });
+
+  // Εμφάνιση λιστών PDF ανάλογα με το μάθημα
+  document.querySelectorAll('[id$="-subjects"] button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Αν είναι το κουμπί για Προσανατολισμού, εμφάνισε το υπομενού με τα κεφάλαια
+      if (btn.dataset.sub === 'lyk2-pros') {
+        document.querySelector('#lyk2-pros-subjects')?.classList.remove('hidden');
+        return;
+      }
+
+      // Κρύψε όλες τις λίστες
+      document.querySelectorAll('ul').forEach(list => list.classList.remove('visible'));
+
+      // Εμφάνισε τη σωστή λίστα
+      const list = document.querySelector(`#${btn.dataset.sub}-list`);
+      if (list) list.classList.add('visible');
+    });
+  });
+
+  // Εμφάνιση λίστας PDF για κεφάλαια Μαθ. Προσανατολισμού Β' Λυκείου
+  document.querySelectorAll('#lyk2-pros-subjects button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('ul').forEach(list => list.classList.remove('visible'));
+      const list = document.querySelector(`#${btn.dataset.sub}-list`);
+      if (list) list.classList.add('visible');
+    });
+  });
+
+
+
+  
 </script>
 
 
