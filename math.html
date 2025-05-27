@@ -298,8 +298,8 @@
   </footer>
 
 
-
- <script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
     const levelButtons = document.querySelectorAll('#level-buttons button');
     const gymnasioButtons = document.getElementById('gymnasio-buttons');
     const lykeioButtons = document.getElementById('lykeio-buttons');
@@ -327,9 +327,13 @@
           (level === 'gymnasio' && !gymnasioButtons.classList.contains('hidden')) ||
           (level === 'lykeio' && !lykeioButtons.classList.contains('hidden'))
         ) {
-          hideAllGrades(); hideAllSubjects(); hideAllLists();
+          hideAllGrades();
+          hideAllSubjects();
+          hideAllLists();
         } else {
-          hideAllGrades(); hideAllSubjects(); hideAllLists();
+          hideAllGrades();
+          hideAllSubjects();
+          hideAllLists();
           document.getElementById(level + '-buttons').classList.remove('hidden');
         }
       });
@@ -341,21 +345,22 @@
         const grade = btn.dataset.grade;
         const subjectsDiv = document.getElementById(grade + '-subjects');
         if (subjectsDiv.classList.contains('hidden')) {
-          hideAllSubjects(); hideAllLists();
+          hideAllSubjects();
+          hideAllLists();
           subjectsDiv.classList.remove('hidden');
         } else {
-          subjectsDiv.classList.add('hidden'); hideAllLists();
+          subjectsDiv.classList.add('hidden');
+          hideAllLists();
         }
       });
     });
 
     // Toggle για μάθημα/κεφάλαιο
     document.querySelectorAll('.btn-group button[data-sub]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const sub = btn.dataset.sub;
+      btn.addEventListener('click', () => {
+        const sub = btn.dataset.sub;
 
-
-            // Ειδικός έλεγχος για Άλγεβρα Α’ Λυκείου
+        // Ειδικός έλεγχος για Άλγεβρα Α’ Λυκείου
         if (sub === 'lyk1-alg') {
           const algSubGroup = document.getElementById('lyk1-alg-subjects');
           if (algSubGroup.classList.contains('hidden')) {
@@ -369,50 +374,49 @@
           return;
         }
 
+        // Αν είναι το κουμπί "Μαθηματικά Προσανατολισμού"
+        if (sub === 'lyk2-pros') {
+          const prosGroup = document.getElementById('lyk2-pros-subjects');
+          const isHidden = prosGroup.classList.contains('hidden');
+          hideAllLists();
+          if (isHidden) {
+            prosGroup.classList.remove('hidden');
+          } else {
+            prosGroup.classList.add('hidden');
+          }
+          return;
+        }
 
-    // Αν είναι το κουμπί "Μαθηματικά Προσανατολισμού"
-    if (sub === 'lyk2-pros') {
-      const prosGroup = document.getElementById('lyk2-pros-subjects');
-      const isHidden = prosGroup.classList.contains('hidden');
-      hideAllLists();
-      if (isHidden) {
-        prosGroup.classList.remove('hidden');
-      } else {
-        prosGroup.classList.add('hidden');
-      }
-      return;
-    }
+        // Όλες οι υπόλοιπες λίστες PDF
+        const list = document.getElementById(sub + '-list');
+        if (!list) return;
 
-    // Όλες οι υπόλοιπες λίστες PDF
-    const list = document.getElementById(sub + '-list');
-    if (!list) return;
+        const isVisible = list.classList.contains('visible');
+        hideAllLists();
+        if (!isVisible) {
+          list.classList.add('visible');
+        }
+      });
+    });
 
-    const isVisible = list.classList.contains('visible');
-    hideAllLists();
-    if (!isVisible) {
-      list.classList.add('visible');
-    }
+    // Toggle για κουμπιά υποκεφαλαίων (π.χ. Κεφάλαιο 1 Άλγεβρας)
+    document.querySelectorAll('#lyk1-alg-subjects button, #lyk2-pros-subjects button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const sub = btn.dataset.sub;
+        const list = document.getElementById(sub + '-list');
+        if (!list) return;
+
+        const isVisible = list.classList.contains('visible');
+        hideAllLists();
+        if (!isVisible) {
+          list.classList.add('visible');
+        }
+      });
+    });
   });
-});
+</script>
 
 
-// Toggle για κουμπιά υποκεφαλαίων (π.χ. Κεφάλαιο 1 Άλγεβρας)
-document.querySelectorAll('#lyk1-alg-subjects button, #lyk2-pros-subjects button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const sub = btn.dataset.sub;
-    const list = document.getElementById(sub + '-list');
-    if (!list) return;
-
-    const isVisible = list.classList.contains('visible');
-    hideAllLists();
-    if (!isVisible) {
-      list.classList.add('visible');
-    }
-  });
-});
-
-
-  </script>
   
 
 </body>
