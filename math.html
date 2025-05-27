@@ -396,6 +396,20 @@
 });
 
 
+// Toggle για κουμπιά υποκεφαλαίων (π.χ. Κεφάλαιο 1 Άλγεβρας)
+document.querySelectorAll('#lyk1-alg-subjects button, #lyk2-pros-subjects button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const sub = btn.dataset.sub;
+    const list = document.getElementById(sub + '-list');
+    if (!list) return;
+
+    const isVisible = list.classList.contains('visible');
+    hideAllLists();
+    if (!isVisible) {
+      list.classList.add('visible');
+    }
+  });
+});
 
 
   </script>
