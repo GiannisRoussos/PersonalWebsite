@@ -319,64 +319,76 @@
       lykeioButtons.classList.add('hidden');
     }
 
-    // Toggle για βαθμίδα
+    // Toggle για βαθμίδα (Γυμνάσιο / Λύκειο)
     levelButtons.forEach(btn => {
       btn.addEventListener('click', () => {
         const level = btn.dataset.level;
-        if (
-          (level === 'gymnasio' && !gymnasioButtons.classList.contains('hidden')) ||
-          (level === 'lykeio' && !lykeioButtons.classList.contains('hidden'))
-        ) {
+        const levelDiv = document.getElementById(level + '-buttons');
+
+        if (!levelDiv) return;
+
+        if (!levelDiv.classList.contains('hidden')) {
+          // Αν το ίδιο level είναι ήδη ορατό, κρύβουμε όλα
           hideAllGrades();
           hideAllSubjects();
           hideAllLists();
         } else {
+          // Αλλιώς εμφανίζουμε το επιλεγμένο level και κρύβουμε τα υπόλοιπα
           hideAllGrades();
           hideAllSubjects();
           hideAllLists();
-          document.getElementById(level + '-buttons').classList.remove('hidden');
+          levelDiv.classList.remove('hidden');
         }
       });
     });
 
-    // Toggle για τάξη
+    // Toggle για τάξη (π.χ. λυκ1, γυμνασίου)
     document.querySelectorAll('#gymnasio-buttons button, #lykeio-buttons button').forEach(btn => {
       btn.addEventListener('click', () => {
         const grade = btn.dataset.grade;
         const subjectsDiv = document.getElementById(grade + '-subjects');
+        if (!subjectsDiv) return;
+
         if (subjectsDiv.classList.contains('hidden')) {
+          // Εμφάνιση του συγκεκριμένου group θεμάτων για την τάξη
           hideAllSubjects();
           hideAllLists();
           subjectsDiv.classList.remove('hidden');
         } else {
+          // Απόκρυψη του group θεμάτων
           subjectsDiv.classList.add('hidden');
           hideAllLists();
         }
       });
     });
 
-    // Toggle για μάθημα/κεφάλαιο
+    // Toggle για μάθημα/κεφάλαιο (κουμπιά με data-sub)
     document.querySelectorAll('.btn-group button[data-sub]').forEach(btn => {
       btn.addEventListener('click', () => {
         const sub = btn.dataset.sub;
 
-        // Ειδικός έλεγχος για Άλγεβρα Α’ Λυκείου
+        // Ειδικός χειρισμός για Άλγεβρα Α’ Λυκείου (για να μην κρύβουμε το γονικό lyk1-subjects)
         if (sub === 'lyk1-alg') {
           const algSubGroup = document.getElementById('lyk1-alg-subjects');
+          if (!algSubGroup) return;
+
+          // Αν τα κεφάλαια είναι κρυφά, δείξε τα
           if (algSubGroup.classList.contains('hidden')) {
             hideAllSubjects();
             hideAllLists();
-            document.getElementById('lyk1-subjects').classList.remove('hidden'); // ξανά δείξε τα βασικά
+            document.getElementById('lyk1-subjects').classList.remove('hidden'); // διατηρεί τα βασικά θέματα ορατά
             algSubGroup.classList.remove('hidden');
           } else {
             algSubGroup.classList.add('hidden');
+            hideAllLists();
           }
           return;
         }
 
-        // Αν είναι το κουμπί "Μαθηματικά Προσανατολισμού"
+        // Ειδικός χειρισμός για Μαθηματικά Προσανατολισμού Β' Λυκείου
         if (sub === 'lyk2-pros') {
           const prosGroup = document.getElementById('lyk2-pros-subjects');
+          if (!prosGroup) return;
           const isHidden = prosGroup.classList.contains('hidden');
           hideAllLists();
           if (isHidden) {
@@ -387,7 +399,7 @@
           return;
         }
 
-        // Όλες οι υπόλοιπες λίστες PDF
+        // Για όλες τις υπόλοιπες λίστες PDF
         const list = document.getElementById(sub + '-list');
         if (!list) return;
 
@@ -415,6 +427,7 @@
     });
   });
 </script>
+
 
 
   
