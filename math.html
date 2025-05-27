@@ -85,8 +85,24 @@
     </div>
 
 <div id="lyk1-subjects" class="btn-group hidden">
+
+
       <button data-sub="lyk1-alg">Άλγεβρα</button>
-      <button data-sub="lyk1-geo">Γεωμετρία</button>
+<button data-sub="lyk1-geo">Γεωμετρία</button>
+
+      <!-- Υπο‐θέματα για Άλγεβρα Α’ Λυκείου -->
+<div id="lyk1-alg-subjects" class="btn-group hidden">
+  <button data-sub="lyk1-alg-ch1">Κεφάλαιο 1</button>
+  <button data-sub="lyk1-alg-ch2">Κεφάλαιο 2</button>
+  <button data-sub="lyk1-alg-ch3">Κεφάλαιο 3</button>
+  <button data-sub="lyk1-alg-ch4">Κεφάλαιο 4</button>
+  <button data-sub="lyk1-alg-ch5">Κεφάλαιο 5</button>
+  <button data-sub="lyk1-alg-ch6">Κεφάλαιο 6</button>
+  <button data-sub="lyk1-alg-ch7">Κεφάλαιο 7</button>
+
+</div>
+
+      
     </div>
 
     <div id="lyk2-subjects" class="btn-group hidden">
@@ -332,6 +348,22 @@
   btn.addEventListener('click', () => {
     const sub = btn.dataset.sub;
 
+
+            // Ειδικός έλεγχος για Άλγεβρα Α’ Λυκείου
+        if (sub === 'lyk1-alg') {
+          const algSubGroup = document.getElementById('lyk1-alg-subjects');
+          if (algSubGroup.classList.contains('hidden')) {
+            hideAllSubjects();
+            hideAllLists();
+            document.getElementById('lyk1-subjects').classList.remove('hidden'); // ξανά δείξε τα βασικά
+            algSubGroup.classList.remove('hidden');
+          } else {
+            algSubGroup.classList.add('hidden');
+          }
+          return;
+        }
+
+
     // Αν είναι το κουμπί "Μαθηματικά Προσανατολισμού"
     if (sub === 'lyk2-pros') {
       const prosGroup = document.getElementById('lyk2-pros-subjects');
@@ -358,11 +390,6 @@
 });
 
   </script>
-
-
-
   
-
 </body>
 </html>
-
