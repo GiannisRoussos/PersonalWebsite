@@ -18,19 +18,14 @@
     .nav-bar a:hover { border-bottom:2px solid white; }
     main { max-width:900px; margin:0 auto; padding:0 20px 40px; }
     h2 { color:#800080; margin:20px 0; text-align:center; }
-
-    /* Button groups */
     .btn-group { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
     .btn-group button { padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600; }
     .btn-group button:hover { background:#5e005e; }
     .btn-group.hidden { display:none; }
-
-    /* Lists */
     ul { list-style:square; margin:10px 0 20px 40px; display:none; }
     ul.visible { display:block; }
     ul li a { color:#5e005e; text-decoration:none; font-weight:600; }
     ul li a:hover { text-decoration:underline; }
-
     footer { text-align:center; padding:20px; background:#eee; color:#555; margin-top:40px; }
   </style>
 </head>
@@ -42,197 +37,330 @@
 
   <div class="nav-bar">
     <a href="index.html">Αρχική</a>
-      <a href="aepp.html">ΑΕΠΠ</a>
-  <a href="links.html">Χρήσιμοι Σύνδεσμοι</a>
+    <a href="aepp.html">ΑΕΠΠ</a>
+    <a href="links.html">Χρήσιμοι Σύνδεσμοι</a>
   </div>
 
   <main>
     <h2>Σημειώσεις Μαθηματικών</h2>
 
-    <!-- Επιλογή βαθμίδας -->
-    <div id="level-buttons" class="btn-group">
-      <button data-level="gymnasio">Γυμνάσιο</button>
-      <button data-level="lykeio">Λύκειο</button>
+    <div class="btn-group">
+      <button data-sub="gym">Γυμνάσιο</button>
+      <button data-sub="lyk">Λύκειο</button>
     </div>
 
-    <!-- Επιλογές τάξεων -->
-    <div id="gymnasio-buttons" class="btn-group hidden">
-      <button data-grade="gym1">Α’ Γυμνασίου</button>
-      <button data-grade="gym2">Β’ Γυμνασίου</button>
-      <button data-grade="gym3">Γ’ Γυμνασίου</button>
+    <!-- Γυμνάσιο -->
+    <div id="gym-subjects" class="btn-group hidden">
+      <button data-sub="gym-1">Α' Γυμνασίου</button>
+      <button data-sub="gym-2">Β' Γυμνασίου</button>
+      <button data-sub="gym-3">Γ' Γυμνασίου</button>
     </div>
-    <div id="lykeio-buttons" class="btn-group hidden">
-      <button data-grade="lyk1">Α’ Λυκείου</button>
-      <button data-grade="lyk2">Β’ Λυκείου</button>
-      <button data-grade="lyk3">Γ’ Λυκείου</button>
-    </div>
-
-    <!-- Επιλογές θεμάτων / κεφαλαίων -->
-
-<div id="gym1-subjects" class="btn-group hidden">
-      <button data-sub="gym1-alg">Άλγεβρα</button>
-      <button data-sub="gym1-geo">Γεωμετρία</button>
-    </div>
-
-    <div id="gym2-subjects" class="btn-group hidden">
-      <button data-sub="gym2-alg">Άλγεβρα</button>
-      <button data-sub="gym2-geo">Γεωμετρία</button>
-    </div>
-
-    <div id="gym3-subjects" class="btn-group hidden">
-      <button data-sub="gym3-alg">Άλγεβρα</button>
-      <button data-sub="gym3-geo">Γεωμετρία</button>
-    </div>
-
-
-
-<div id="lyk1-subjects" class="btn-group hidden">
-
-<button data-sub="lyk1-alg">Άλγεβρα</button>
-<button data-sub="lyk1-geo">Γεωμετρία</button>
-
-
-      <!-- Υπο‐θέματα για Άλγεβρα Α’ Λυκείου -->
-<div id="lyk1-alg-subjects" class="btn-group hidden">
-  <button data-sub="lyk1-alg-ch1">Κεφάλαιο 1</button>
-  <button data-sub="lyk1-alg-ch2">Κεφάλαιο 2</button>
-  <button data-sub="lyk1-alg-ch3">Κεφάλαιο 3</button>
-  <button data-sub="lyk1-alg-ch4">Κεφάλαιο 4</button>
-  <button data-sub="lyk1-alg-ch5">Κεφάλαιο 5</button>
-  <button data-sub="lyk1-alg-ch6">Κεφάλαιο 6</button>
-  <button data-sub="lyk1-alg-ch7">Κεφάλαιο 7</button>
-
-</div>  
-    </div>
-
-
-    <div id="lyk2-subjects" class="btn-group hidden">
-      <button data-sub="lyk2-alg">Άλγεβρα</button>
-      <button data-sub="lyk2-geo">Γεωμετρία</button>
-      <button data-sub="lyk2-pros">Μαθηματικά Προσανατολισμού</button>
-      <!-- Υπο‐θέματα για Μαθηματικά Προσανατολισμού Β’ Λυκείου -->
-<div id="lyk2-pros-subjects" class="btn-group hidden">
-  <button data-sub="lyk2-pros-ch1">Κεφάλαιο 1</button>
-  <button data-sub="lyk2-pros-ch2">Κεφάλαιο 2</button>
-  <button data-sub="lyk2-pros-ch3">Κεφάλαιο 3</button>
-  <button data-sub="lyk2-pros-ch4">Κεφάλαιο 4</button>
-  <button data-sub="lyk2-pros-ch5">Κεφάλαιο 5</button>
-  <button data-sub="lyk2-pros-ch6">Κεφάλαιο 6</button>
-</div>
-
-    </div>
-
-    <div id="lyk3-subjects" class="btn-group hidden">
-      <button data-sub="lyk3-ch1">Κεφάλαιο 1: Ανάλυση</button>
-      <button data-sub="lyk3-ch2">Κεφάλαιο 2: Διαφορικός Λογισμός</button>
-      <button data-sub="lyk3-ch3">Κεφάλαιο 3: Ολοκληρωτικός Λογισμός</button>
-    </div>
-
-    <!-- Λίστες PDF -->
-<ul id="gym1-alg-list" class="hidden">
-      <li><a href="notes/math/gymnasio1/αλγεβρα.pdf" target="_blank">Άλγεβρα Α’ Γυμνασίου (PDF)</a></li>
-    </ul>
-
- <ul id="gym1-geo-list" class="hidden">
-      <li><a href="notes/math/gymnasio1/γεωμετρια.pdf" target="_blank">Γεωμετρία Α’ Γυμνασίου (PDF)</a></li>
-    </ul>
-
- <ul id="gym2-alg-list" class="hidden">
-      <li><a href="notes/math/gymnasio2/αλγεβρα.pdf" target="_blank">Άλγεβρα Β’ Γυμνασίου (PDF)</a></li>
-    </ul>
-    <ul id="gym2-geo-list" class="hidden">
-      <li><a href="notes/math/gymnasio2/γεωμετρια.pdf" target="_blank">Γεωμετρία Β’ Γυμνασίου (PDF)</a></li>
-    </ul>
-
-    <ul id="gym3-alg-list" class="hidden">
-      <li><a href="notes/math/gymnasio3/αλγεβρα.pdf" target="_blank">Άλγεβρα Γ’ Γυμνασίου (PDF)</a></li>
-    </ul>
-    <ul id="gym3-geo-list" class="hidden">
-      <li><a href="notes/math/gymnasio3/γεωμετρια.pdf" target="_blank">Γεωμετρία Γ’ Γυμνασίου (PDF)</a></li>
-    </ul>
-
  
-<!--A' Λυκείου-->
+
+ <div id="gym-1-subjects" class="btn-group hidden">
+      <button data-sub="gym-1-alg">Άλγεβρα Α' Γυμνασίου</button>
+      <button data-sub="gym-1-geo">Γεωμετρία Α' Γυμνασίου</button>
+    </div>
+
+    <div id="gym-2-subjects" class="btn-group hidden">
+      <button data-sub="gym-2-alg">Άλγεβρα Β' Γυμνασίου</button>
+      <button data-sub="gym-2-geo">Γεωμετρία Β' Γυμνασίου</button>
+    </div>
+
+    <div id="gym-3-subjects" class="btn-group hidden">
+      <button data-sub="gym-3-alg">Άλγεβρα Γ' Γυμνασίου</button>
+      <button data-sub="gym-3-geo">Γεωμετρία Γ' Γυμνασίου</button>
+    </div>
+
+
+
+  <!-- Αλγεβρα/Γεωμετρια και κεφαλαια για καθε ταξη του γυμνασίου -->
+                                                  <!--Α' Γυμνασίου-->
 <!--Άλγεβρα-->
-<!--Κεφάλαιο 1ο-->
-
-
-
-
-<ul id="lyk1-alg-ch3-list" class="hidden">
-      <li><a href="notes\math\lykeio1\alg\kef3\Εξισώσεις.pdf" target="_blank">Εξισώσεις (PDF)</a></li>
-  </ul>
-  
- <ul id="lyk1-alg-ch4-list" class="hidden">
-
-    <li><a href="notes\math\lykeio1\alg\kef4\Ανισώσεις.pdf" target="_blank">Ανισώσεις (PDF)</a></li>
+    <div id="gym-1-alg-subjects" class="btn-group hidden">
+      <button data-sub="gym-1-alg-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-1-alg-ch2">Κεφάλαιο 2</button>
+    </div>
+    <ul id="gym-1-alg-ch1-list">
+      <li><a href="#">Άσκηση 1 (PDF)</a></li>
+    </ul>
+    <ul id="gym-1-alg-ch2-list">
+      <li><a href="#">Άσκηση 2 (PDF)</a></li>
     </ul>
 
- <ul id="lyk1-alg-ch5-list" class="hidden">
-
- <li><a href="notes\math\lykeio1\alg\kef5\Πρόοδοι.pdf" target="_blank">Πρόοδοι (PDF)</a></li>
-       </ul>
-
- <ul id="lyk1-alg-ch6-list" class="hidden">
- <li><a href="notes\math\lykeio1\alg\kef6\Η_Έννοια_Της_Συνάρτησης.pdf" target="_blank">Η Έννοια Της Συνάρτησης (PDF)</a></li>
+<!--Γεωμετρία-->
+    <div id="gym-1-geo-subjects" class="btn-group hidden">
+      <button data-sub="gym-1-geo-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-1-geo-ch2">Κεφάλαιο 2</button>
+    </div>
+    <ul id="gym-1-geo-ch1-list">
+      <li><a href="#">Ορισμοί (PDF)</a></li>
     </ul>
+    <ul id="gym-1-geo-ch2-list">
+      <li><a href="#">Θεωρία (PDF)</a></li>
+    </ul>
+
+                                             <!--Β' Γυμνασίου-->
+<!--Άλγεβρα-->
+    <div id="gym-2-alg-subjects" class="btn-group hidden">
+      <button data-sub="gym-2-alg-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-2-alg-ch2">Κεφάλαιο 2</button>
+    </div>
+    <ul id="gym-2-alg-ch1-list">
+      <li><a href="#">Άσκηση 1 (PDF)</a></li>
+    </ul>
+    <ul id="gym-2-alg-ch2-list">
+      <li><a href="#">Θεωρία (PDF)</a></li>
+    </ul>
+
+<!--Γεωμετρία-->
+    <div id="gym-2-geo-subjects" class="btn-group hidden">
+      <button data-sub="gym-2-geo-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-2-geo-ch2">Κεφάλαιο 2</button>
+    </div>
+    <ul id="gym-2-geo-ch1-list">
+      <li><a href="#">Ορισμοί (PDF)</a></li>
+    </ul>
+    <ul id="gym-2-geo-ch2-list">
+      <li><a href="#">Θεωρία (PDF)</a></li>
+    </ul>
+
+
+                                               <!-- Γ' Γυμνασίου-->
+<!--Άλγεβρα-->
+    <div id="gym-3-alg-subjects" class="btn-group hidden">
+      <button data-sub="gym-3-alg-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-3-alg-ch2">Κεφάλαιο 2</button>
+      <button data-sub="gym-3-alg-ch3">Κεφάλαιο 3</button>
+    </div>
+    <ul id="gym-3-alg-ch1-list">
+      <li><a href="#">Άσκηση 1 (PDF)</a></li>
+    </ul>
+    <ul id="gym-3-alg-ch2-list">
+      <li><a href="#">Άσκηση 2 (PDF)</a></li>
+    </ul>
+    <ul id="gym-3-alg-ch3-list">
+      <li><a href="#">Άσκηση 3 (PDF)</a></li>
+    </ul>
+
+<!--Γεωμετρία-->
+    <div id="gym-3-geo-subjects" class="btn-group hidden">
+      <button data-sub="gym-3-geo-ch1">Κεφάλαιο 1</button>
+      <button data-sub="gym-3-geo-ch2">Κεφάλαιο 2</button>
+      <button data-sub="gym-3-geo-ch3">Κεφάλαιο 3</button>
+    </div>
+    <ul id="gym-3-geo-ch1-list">
+      <li><a href="#">Ορισμοί (PDF)</a></li>
+    </ul>
+    <ul id="gym-3-geo-ch2-list">
+      <li><a href="#">Θεωρία (PDF)</a></li>
+    </ul>
+    <ul id="gym-3-geo-ch3-list">
+      <li><a href="#">Ασκήσεις (PDF)</a></li>
+    </ul>
+
+
+                                                  <!-- Λύκειο -->
+    <div id="lyk-subjects" class="btn-group hidden">
+      <button data-sub="lyk-1">Α' Λυκείου</button>
+      <button data-sub="lyk-2">Β' Λυκείου</button>
+      <button data-sub="lyk-3">Γ' Λυκείου</button>
+    </div>
+
+    <!-- Α' Λυκείου: Άλγεβρα & Γεωμετρία -->
+    <div id="lyk-1-subjects" class="btn-group hidden">
+      <button data-sub="lyk-1-alg">Άλγεβρα Α' Λυκείου</button>
+      <button data-sub="lyk-1-geo">Γεωμετρία Α' Λυκείου</button>
+    </div>
+
+    <!-- Άλγεβρα Α' Λυκείου: 7 Κεφάλαια -->
+    <div id="lyk-1-alg-subjects" class="btn-group hidden">
+      <button data-sub="lyk-1-alg-ch1">Κεφάλαιο 1</button>
+      <button data-sub="lyk-1-alg-ch2">Κεφάλαιο 2</button>
+      <button data-sub="lyk-1-alg-ch3">Κεφάλαιο 3</button>
+      <button data-sub="lyk-1-alg-ch4">Κεφάλαιο 4</button>
+      <button data-sub="lyk-1-alg-ch5">Κεφάλαιο 5</button>
+      <button data-sub="lyk-1-alg-ch6">Κεφάλαιο 6</button>
+      <button data-sub="lyk-1-alg-ch7">Κεφάλαιο 7</button>
+    </div>
+
+<!--Σημειώσεις-->
+<!--Κεφ 1ο-->
+    <ul id="lyk-1-alg-ch1-list"><li><a href="#">Ασκήσεις Κεφ.1 (PDF)</a></li></ul>
+
+<!--Κεφ 2ο-->
+    <ul id="lyk-1-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
+
+<!--Κεφ 3ο-->
+    <ul id="lyk-1-alg-ch3-list"><li><a href="notes\math\lykeio1\alg\kef3\Εξισώσεις.pdf">Εξισώσεις (PDF)</a></li></ul>
+
+<!--Κεφ 4ο-->
+    <ul id="lyk-1-alg-ch4-list"><li><a href="notes\math\lykeio1\alg\kef4\Ανισώσεις.pdf">Ανισώσεις (PDF)</a></li></ul>
+
+<!--Κεφ 5ο-->
+    <ul id="lyk-1-alg-ch5-list"><li><a href="notes\math\lykeio1\alg\kef5\Πρόοδοι.pdf">Πρόοδοι (PDF)</a></li></ul>
+
+<!--Κεφ 6ο-->
+    <ul id="lyk-1-alg-ch6-list"><li><a href="notes\math\lykeio1\alg\kef6\Η_Έννοια_Της_Συνάρτησης.pdf">Η Έννοια της Συνάρτησης (PDF)</a></li></ul>
+
+<!--Κεφ 7ο-->
+    <ul id="lyk-1-alg-ch7-list"><li><a href="#">Ασκήσεις Κεφ.7 (PDF)</a></li></ul>
+
+    <!-- Γεωμετρία Α' Λυκείου: 6 Κεφάλαια -->
+    <div id="lyk-1-geo-subjects" class="btn-group hidden">
+      <button data-sub="lyk-1-geo-ch1">Κεφάλαιο 1</button>
+      <button data-sub="lyk-1-geo-ch2">Κεφάλαιο 2</button>
+      <button data-sub="lyk-1-geo-ch3">Κεφάλαιο 3</button>
+      <button data-sub="lyk-1-geo-ch4">Κεφάλαιο 4</button>
+      <button data-sub="lyk-1-geo-ch5">Κεφάλαιο 5</button>
+      <button data-sub="lyk-1-geo-ch6">Κεφάλαιο 6</button>
+    </div>
+
+<!--Σημειώσεις-->
+    <ul id="lyk-1-geo-ch1-list"><li><a href="#">Ασκήσεις Κεφ.1 (PDF)</a></li></ul>
+    <ul id="lyk-1-geo-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
+    <ul id="lyk-1-geo-ch3-list"><li><a href="#">Ασκήσεις Κεφ.3 (PDF)</a></li></ul>
+    <ul id="lyk-1-geo-ch4-list"><li><a href="#">Ασκήσεις Κεφ.4 (PDF)</a></li></ul>
+    <ul id="lyk-1-geo-ch5-list"><li><a href="#">Ασκήσεις Κεφ.5 (PDF)</a></li></ul>
+    <ul id="lyk-1-geo-ch6-list"><li><a href="#">Ασκήσεις Κεφ.6 (PDF)</a></li></ul>
+
+
+                                     <!--Β'  Λυκείου -->
+<!--Κουμπιά-->
+
+<div id="lyk-2-subjects" class="btn-group hidden">
+      <button data-sub="lyk-2-alg">Άλγεβρα Β' Λυκείου</button>
+      <button data-sub="lyk-2-geo">Γεωμετρία Β' Λυκείου</button>
+      <button data-sub="lyk-2-pros">Μαθηματικά προσανατολισμού</button>
+    </div>
+
+<!--Αλγεβρα-->
+     <div id="lyk-2-alg-subjects" class="btn-group hidden">
+      <button data-sub="lyk-2-alg-ch1">Κεφάλαιο 1</button>
+      <button data-sub="lyk-2-alg-ch2">Κεφάλαιο 2</button>
+      <button data-sub="lyk-2-alg-ch3">Κεφάλαιο 3</button>
+      <button data-sub="lyk-2-alg-ch4">Κεφάλαιο 4</button>
+      <button data-sub="lyk-2-alg-ch5">Κεφάλαιο 5</button>
+    </div>
+
+<!--Σημειώσεις-->
+<!--Κεφ 1ο-->
+    <ul id="lyk-2-alg-ch1-list"><li><a href="#">Ασκήσεις Κεφ.1 (PDF)</a></li></ul>
+
+<!--Κεφ 2ο-->
+    <ul id="lyk-2-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
+
+<!--Κεφ 3ο-->
+    <ul id="lyk-2-alg-ch3-list"><li><a href="#">Ασκήσεις Κεφ.3 (PDF)</a></li></ul>
+
+<!--Κεφ 4ο-->
+    <ul id="lyk-2-alg-ch4-list">
+<li><a href="notes\math\lykeio2\alg\Kef4\4.1.Πολυώνυμα.pdf">4.1. Πολυώνυμα (PDF)</a></li>
+<li><a href="notes\math\lykeio2\alg\Kef5\Ανισώσεις που λύνονται με τη βοήθεια μονοτονίας.pdf">Ανισώσεις που λύνονται με τη βοήθεια μονοτονίας (PDF)</a></li>
+
+</ul>
+
+<!--Κεφ 5ο-->
+    <ul id="lyk-2-alg-ch5-list"><li><a href="#">Ασκήσεις Κεφ.5 (PDF)</a></li></ul>
 
 
 <!--Γεωμετρία-->
-    <ul id="lyk1-geo-list" class="hidden">
-      <li><a href="notes\math\lykeio1\γεωμετρια.pdf" target="_blank">Γεωμετρία Α’ Λυκείου (PDF)</a></li>
-    </ul>
+  <div id="lyk-2-geo-subjects" class="btn-group hidden">
+      <button data-sub="lyk-2-geo-ch7">Κεφάλαιο 7</button>
+      <button data-sub="lyk-2-geo-ch8">Κεφάλαιο 8</button>
+      <button data-sub="lyk-2-geo-ch9">Κεφάλαιο 9</button>
+      <button data-sub="lyk-2-geo-ch10">Κεφάλαιο 10</button>
+      <button data-sub="lyk-2-geo-ch11">Κεφάλαιο 11</button>
+      <button data-sub="lyk-2-geo-ch12">Κεφάλαιο 12</button>
+
+    </div>
+
+<!--Σημειώσεις-->
+<!--Κεφ 7ο-->
+    <ul id="lyk-2-geo-ch7-list"><li><a href="#">Ασκήσεις Κεφ.7 (PDF)</a></li></ul>
+
+<!--Κεφ 8ο-->
+    <ul id="lyk-2-geo-ch8-list"><li><a href="#">Ασκήσεις Κεφ.8 (PDF)</a></li></ul>
+
+<!--Κεφ 9ο-->
+    <ul id="lyk-2-geo-ch9-list"><li><a href="#">Ασκήσεις Κεφ.9 (PDF)</a></li></ul>
+
+<!--Κεφ 10ο-->
+    <ul id="lyk-2-geo-ch10-list"><li><a href="#">Ασκήσεις Κεφ.10 (PDF)</a></li></ul>
+
+<!--Κεφ 11ο-->
+    <ul id="lyk-2-geo-ch11-list"><li><a href="#">Ασκήσεις Κεφ.11 (PDF)</a></li></ul>
+
+<!--Κεφ 12ο-->
+    <ul id="lyk-2-geo-ch12-list"><li><a href="#">Ασκήσεις Κεφ.12 (PDF)</a></li></ul>
 
 
-<!--Β' Λυκείου-->
-    <!--Άλγεβρα-->
-    <ul id="lyk2-alg-list" class="hidden">
-      <li><a href="notes\math\lykeio2\alg\Kef4\4.1.Πολυώνυμα.pdf" target="_blank">4.1.Πολυώνυμα (PDF)</a></li>
+                               <!--Μαθηματικά Προσανατολισμού-->
 
-      <li><a href="notes\math\lykeio2\alg\Kef5\Ανισώσεις που λύνονται με τη βοήθεια μονοτονίας.pdf" target="_blank">Ανισώσεις που λύνονται με τη βοήθεια μονοτονίας (PDF)</a></li>
+ <div id="lyk-2-pros-subjects" class="btn-group hidden">
+      <button data-sub="lyk-2-pros-ch1">Κεφάλαιο 1</button>
+      <button data-sub="lyk-2-pros-ch2">Κεφάλαιο 2</button>
+      <button data-sub="lyk-2-pros-ch3">Κεφάλαιο 3</button>
+      <button data-sub="lyk-2-pros-ch4">Κεφάλαιο 4</button>
+      <button data-sub="lyk-2-pros-ch5">Κεφάλαιο 5</button>
+      <button data-sub="lyk-2-pros-ch6">Κεφάλαιο 6</button>
 
-    </ul>
+    </div>
 
-    <!--Γεωμετρία-->
-    <ul id="lyk2-geo-list" class="hidden">
-      <li><a href="notes/math/lykeio2/γεωμετρια.pdf" target="_blank">Γεωμετρία Β’ Λυκείου (PDF)</a></li>
-    </ul>
-<!--Μαθηματικά Προσανατολισμού-->
-   
-<!--Κεφάλαιο 1ο-->
-    <ul id="lyk2-pros-ch1-list" class="hidden">
-  <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.1. Η έννοια του διανύσματος.pdf" target="_blank">1.1. Η έννοια του διανύσματος (PDF)</a></li>
+<!--Σημειώσεις-->
+<!--Κεφ 1ο-->
+    <ul id="lyk-2-pros-ch1-list">
+       <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.1. Η έννοια του διανύσματος.pdf" target="_blank">1.1. Η έννοια του διανύσματος (PDF)</a></li>
   <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.2. Πρόσθεση_Αφαίρεση_Διανυσμάτων.pdf" target="_blank">1.2. Πρόσθεση_Αφαίρεση_Διανυσμάτων (PDF)</a></li>
       <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.3. Πολλαπλασιαμός_Αριθμού_Διανύσματος.pdf" target="_blank">1.3. Πολλαπλασιαμός_Αριθμού_Διανύσματος (PDF)</a></li>
       <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.4. Συντεταγμένες στο επίπεδο.pdf" target="_blank">1.4. Συντεταγμένες στο επίπεδο (PDF)</a></li>
       <li><a href="notes\math\lykeio2\pros\Διανύσματα\1.5.1. Εσωτερικό γινόμενο διανύσματος.pdf" target="_blank">1.5.1. Εσωτερικό γινόμενο διανύσματος (PDF)</a></li>
 </ul>
 
-<!--Κεφάλαιο 2ο-->
-    <ul id="lyk2-pros-ch2-list" class="hidden">
-  <li><a href="notes\math\lykeio2\pros\Ευθεία\.pdf" target="_blank"> (PDF)</a></li> 
-</ul>
-<!--Κεφάλαιο 3ο Κύκλος-->
+<!--Κεφ 2ο-->
+    <ul id="lyk-2-pros-ch2-list">
+      <li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li>
 
-<!--Κεφάλαιο 4ο Παραβολή-->
-    <ul id="lyk2-pros-ch4-list" class="hidden">
-  <li><a href="notes\math\lykeio2\pros\Παραβολή\Παραβολή.pdf" target="_blank">Παραβολή (PDF)</a></li>
 </ul>
 
-<!-- Κεφάλαιο 5ο Έλλειψη-->
- <ul id="lyk2-pros-ch5-list" class="hidden">
-  <li><a href="notes\math\lykeio2\pros\Έλλειψη\Έλλειψη.pdf" target="_blank">Έλλειψη (PDF)</a></li>
+<!--Κεφ 3ο-->
+    <ul id="lyk-2-pros-ch3-list">
+      <li><a href="#">Ασκήσεις Κεφ.3 (PDF)</a></li>
+
 </ul>
 
-<!--Κεφάλαιο 6ο Υπερβολή-->
-     <ul id="lyk2-pros-ch6-list" class="hidden">
+<!--Κεφ 4ο-->
+    <ul id="lyk-2-pros-ch4-list">
+      <li><a href="notes\math\lykeio2\pros\Παραβολή\Παραβολή.pdf" target="_blank">Παραβολή (PDF)</a></li>
+
+</ul>
+
+
+<!--Κεφ 5ο-->
+    <ul id="lyk-2-pros-ch5-list">
+      <li><a href="notes\math\lykeio2\pros\Έλλειψη\Έλλειψη.pdf" target="_blank">Έλλειψη (PDF)</a></li>
+</ul>
+
+
+<!--Κεφ 6ο-->
+    <ul id="lyk-2-pros-ch6-list">
   <li><a href="notes\math\lykeio2\pros\Υπερβολή\Υπερβολή.pdf" target="_blank">Υπερβολή (PDF)</a></li>
+
 </ul>
 
-<!--Γ' Λυκείου--> 
-<!--Κεφάλαιο 1ο-->
 
-    <ul id="lyk3-ch1-list" class="hidden">
+
+
+<!--Γ' Λυκείου-->
+    <div id="lyk-3-subjects" class="btn-group hidden">
+      <button data-sub="lyk-3-kef1">Κεφάλαιο 1ο Ανάλυση</button>
+      <button data-sub="lyk-3-kef2">Κεφάλαιο 2ο Διαφορικός Λογισμός</button>
+      <button data-sub="lyk-3-kef3">Κεφάλαιο 3ο Ολοκληρωτικός Λογισμός</button>
+
+    </div>
+
+<!--Σημειώσεις Κεφάλαιο 1ο-->
+    <ul id="lyk-3-kef1-list">
 <li><a href="notes\math\lykeio3\Kef1\Ανάλυση_Κεφ1_Ασκήσεις.pdf" target="_blank">Ασκήσεις 1ου Κεφαλαίου (PDF)</a></li>
 
 <li><a href="notes\math\lykeio3\Kef1\Τεστ στα όρια 1.4-1.5.pdf" target="_blank">Τεστ Στα Όρια 1.4-1.5 (PDF)</a></li>
@@ -247,13 +375,13 @@
 <li><a href="notes\math\lykeio3\Kef1\ΕΠΑΝΑΛΗΠΤΙΚΑ ΣΤΟ 1ο Κεφάλαιο.pdf" target="_blank">Επαναληπτικές Ασκήσεις 1ου Κεφαλαίου Με Λύσεις (PDF)</a></li>
 
       <li><a href="notes\math\lykeio3\Kef1\Κεφάλαιο2ο_Διαγώνισμα.pdf" target="_blank">Διαγώνισμα στο 1ο Κεφάλαιο (PDF)</a></li>
-    </ul>
 
-<!--Κεφάλαιο 2ο-->
+</ul>
 
-    <ul id="lyk3-ch2-list" class="hidden">
+<!--Σημειώσεις Κεφάλαιο 2ο-->
+    <ul id="lyk-3-kef2-list">
 
-       <li><a href="notes\math\lykeio3\Kef2\Μεθοδολογία_Εύρεση_ριζών.pdf" target="_blank">Μεθοδολογία_Εύρεση_ριζών (PDF)</a></li>
+<li><a href="notes\math\lykeio3\Kef2\Μεθοδολογία_Εύρεση_ριζών.pdf" target="_blank">Μεθοδολογία_Εύρεση_ριζών (PDF)</a></li>
 </li>
 
  <li><a href="notes\math\lykeio3\Kef2\Επαναληπτικά_Θέματα.pdf" target="_blank">Επαναληπτικά_Θέματα (PDF)</a></li>
@@ -279,98 +407,52 @@
 
 <li><a href="notes\math\lykeio3\Kef2\Διαγώνισμα_στο_διαφορικό_λογισμό_2.8.-2.10..pdf" target="_blank">Διαγώνισμα στο διαφορικό λογισμό 2.8.-2.10. (PDF)</a></li>
 </li>
+</ul>
 
-    </ul>
+<!--Σημειώσεις Κεφάλαιο 3ο-->
+    <ul id="lyk-3-kef3-list">
 
-
-<!--Κεφάλαιο 3ο-->
-
-    <ul id="lyk3-ch3-list" class="hidden">
-
-      <li><a href="notes\math\lykeio3\Kef3\Τεστ_Ολοκληρώματα.pdf" target="_blank">Τεστ Ολοκληρώματα (PDF)</a></li>
+ <li><a href="notes\math\lykeio3\Kef3\Τεστ_Ολοκληρώματα.pdf" target="_blank">Τεστ Ολοκληρώματα (PDF)</a></li>
 
       <li><a href="notes\math\lykeio3\Kef3\Διαγώνισμα_3ο_Κεφάλαιο.pdf" target="_blank">Διαγώνισμα 3ο Κεφάλαιο (PDF)</a></li>
-
-    </ul>
-
-
+</ul>
 
 
   </main>
 
-  <footer>
+
+
+
+ <footer>
     &copy; 2025 GMATH. Μεράκι για τα μαθηματικά.
   </footer>
 
+  <script>
+    document.querySelectorAll('[data-sub]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const key = btn.dataset.sub;
+        const depth = key.split('-').length;
 
-<script>
- document.addEventListener('DOMContentLoaded', () => {
-  const lists = document.querySelectorAll('ul');
-  const subjectGroups = document.querySelectorAll('[id$="-subjects"]');
-  const levelButtons = document.querySelectorAll('#level-buttons button');
-  const gradeButtons = document.querySelectorAll('#gymnasio-buttons button, #lykeio-buttons button');
-  const subButtons = document.querySelectorAll('.btn-group button[data-sub]');
+        // Κρύβουμε όλα τα groups με depth >= τρέχοντος, εκτός από το τρέχον
+        document.querySelectorAll('.btn-group[id$="-subjects"]').forEach(div => {
+          const divDepth = div.id.replace('-subjects','').split('-').length;
+          if (divDepth >= depth && div.id !== key + '-subjects') {
+            div.classList.add('hidden');
+          }
+        });
+        // Κρύβουμε όλες τις ορατές λίστες
+        document.querySelectorAll('ul.visible').forEach(ul => ul.classList.remove('visible'));
 
-  function hideAllLists()   { lists.forEach(ul => ul.classList.remove('visible')); }
-  function hideAllSubs()    { subjectGroups.forEach(div => div.classList.add('hidden')); }
-  function hideAllGrades()  {
-    document.getElementById('gymnasio-buttons').classList.add('hidden');
-    document.getElementById('lykeio-buttons').classList.add('hidden');
-  }
+        const group = document.getElementById(key + '-subjects');
+        const list  = document.getElementById(key + '-list');
 
-  // 1) Toggle βαθμίδα
-  levelButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const lvl = btn.dataset.level;            // 'gymnasio' ή 'lykeio'
-      const container = document.getElementById(lvl + '-buttons');
-      const isHidden = container.classList.contains('hidden');
-      hideAllGrades(); hideAllSubs(); hideAllLists();
-      if (isHidden) container.classList.remove('hidden');
+        if (group) {
+          group.classList.toggle('hidden');
+        } else if (list) {
+          list.classList.toggle('visible');
+        }
+      });
     });
-  });
-
-  // 2) Toggle τάξη
-  gradeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const grpId = btn.dataset.grade + '-subjects';
-      const grp   = document.getElementById(grpId);
-      if (!grp) return;
-      const isHidden = grp.classList.contains('hidden');
-      hideAllSubs(); hideAllLists();
-      if (!isHidden) {
-        grp.classList.add('hidden');
-      } else {
-        grp.classList.remove('hidden');
-      }
-    });
-  });
-
-  // 3) Toggle μάθημα ή υπο-μάθημα (γενικά)
-  subButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const subKey = btn.dataset.sub;            // π.χ. 'lyk1-alg' ή 'lyk1-alg-ch1'
-      const subgroup = document.getElementById(subKey + '-subjects');
-      const list     = document.getElementById(subKey + '-list');
-
-      hideAllLists();
-
-      if (subgroup) {
-        // εναλλαγή εμφάνισης υπο-ομάδας
-        if (subgroup.classList.contains('hidden')) subgroup.classList.remove('hidden');
-        else                                       subgroup.classList.add('hidden');
-      } else if (list) {
-        // εναλλαγή λίστας PDF
-        list.classList.toggle('visible');
-      }
-    });
-  });
-});
-
-</script>
-
-
-
-  
-
+  </script>
 </body>
 </html>
