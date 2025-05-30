@@ -188,6 +188,13 @@
 <!--Κεφ 1ο-->
     <ul id="lyk-1-alg-ch1-list"><li><a href="#">Ασκήσεις Κεφ.1 (PDF)</a></li></ul>
 
+<button id="quiz-btn" onclick="window.location.href='tfq.html'" 
+  style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
+  Quiz True-False Άλγεβρα Α' Λυκείου
+</button>
+
+
+
 <!--Κεφ 2ο-->
     <ul id="lyk-1-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
 
@@ -428,31 +435,42 @@
   </footer>
 
   <script>
-    document.querySelectorAll('[data-sub]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const key = btn.dataset.sub;
-        const depth = key.split('-').length;
+   document.querySelectorAll('[data-sub]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.sub;
+    const depth = key.split('-').length;
 
-        // Κρύβουμε όλα τα groups με depth >= τρέχοντος, εκτός από το τρέχον
-        document.querySelectorAll('.btn-group[id$="-subjects"]').forEach(div => {
-          const divDepth = div.id.replace('-subjects','').split('-').length;
-          if (divDepth >= depth && div.id !== key + '-subjects') {
-            div.classList.add('hidden');
-          }
-        });
-        // Κρύβουμε όλες τις ορατές λίστες
-        document.querySelectorAll('ul.visible').forEach(ul => ul.classList.remove('visible'));
-
-        const group = document.getElementById(key + '-subjects');
-        const list  = document.getElementById(key + '-list');
-
-        if (group) {
-          group.classList.toggle('hidden');
-        } else if (list) {
-          list.classList.toggle('visible');
-        }
-      });
+    // Κρύβουμε όλα τα groups με depth >= τρέχοντος, εκτός από το τρέχον
+    document.querySelectorAll('.btn-group[id$="-subjects"]').forEach(div => {
+      const divDepth = div.id.replace('-subjects','').split('-').length;
+      if (divDepth >= depth && div.id !== key + '-subjects') {
+        div.classList.add('hidden');
+      }
     });
+    // Κρύβουμε όλες τις ορατές λίστες
+    document.querySelectorAll('ul.visible').forEach(ul => ul.classList.remove('visible'));
+
+    const group = document.getElementById(key + '-subjects');
+    const list  = document.getElementById(key + '-list');
+
+    if (group) {
+      group.classList.toggle('hidden');
+    } else if (list) {
+      list.classList.toggle('visible');
+    }
+
+    // Εμφάνιση ή απόκρυψη κουμπιού quiz ανάλογα αν η λίστα του Κεφ.1 είναι ορατή
+    const quizBtn = document.getElementById('quiz-btn');
+    const ch1List = document.getElementById('lyk-1-alg-ch1-list');
+
+    if (ch1List.classList.contains('visible')) {
+      quizBtn.style.display = 'block';
+    } else {
+      quizBtn.style.display = 'none';
+    }
+  });
+});
+
   </script>
 </body>
 </html>
