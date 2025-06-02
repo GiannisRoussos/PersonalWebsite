@@ -204,6 +204,10 @@
   Quiz True-False 2.1. Οι πράξεις και οι ιδιότητές τους-Ταυτότητες
 </button>
 
+<button id="quiz-btn-4" onclick="window.location.href='tfq2.1.diataksi.html'" 
+  style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
+  Quiz True-False 2.1. Οι πράξεις και οι ιδιότητές τους-Διάταξη </button>
+
 
 <!--Κεφ 2ο-->
     <ul id="lyk-1-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
@@ -473,16 +477,22 @@
     const quizBtn = document.getElementById('quiz-btn-1');
     const quizBtn2 = document.getElementById('quiz-btn-2');
     const quizBtn3 = document.getElementById('quiz-btn-3');
+    const quizBtn4 = document.getElementById('quiz-btn-4');
+
     const ch1List = document.getElementById('lyk-1-alg-ch1-list');
 
     if (ch1List.classList.contains('visible')) {
   quizBtn.style.display = 'block';
   quizBtn2.style.display = 'block';
-  quizBtn3.style.display = 'block';  
+  quizBtn3.style.display = 'block';
+  quizBtn4.style.display = 'block';  
+  
 } else {
   quizBtn.style.display = 'none';
   quizBtn2.style.display = 'none';
-  quizBtn3.style.display = 'none';  
+  quizBtn3.style.display = 'none';
+  quizBtn4.style.display = 'none';  
+  
 }
 
   });
