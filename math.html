@@ -206,7 +206,15 @@
 
 <button id="quiz-btn-4" onclick="window.location.href='tfq2.1.diataksi.html'" 
   style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
-  Quiz True-False 2.1. Οι πράξεις και οι ιδιότητές τους-Διάταξη </button>
+  Quiz True-False 2.2. Διάταξη πραγματικών αριθμών </button>
+
+<button id="quiz-btn-5" onclick="window.location.href='tfq2.3.html'" 
+  style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
+  Quiz True-False 2.3. Απόλυτη τιμή πραγματικού αριθμού </button>
+
+<button id="quiz-btn-6" onclick="window.location.href='tfq2.4.html'" 
+  style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
+  Quiz True-False 2.4. Ρίζες πραγματικών αριθμών </button>
 
 
 <!--Κεφ 2ο-->
@@ -478,6 +486,10 @@
     const quizBtn2 = document.getElementById('quiz-btn-2');
     const quizBtn3 = document.getElementById('quiz-btn-3');
     const quizBtn4 = document.getElementById('quiz-btn-4');
+    const quizBtn5 = document.getElementById('quiz-btn-5');
+    const quizBtn6 = document.getElementById('quiz-btn-6');
+
+
 
     const ch1List = document.getElementById('lyk-1-alg-ch1-list');
 
@@ -485,14 +497,18 @@
   quizBtn.style.display = 'block';
   quizBtn2.style.display = 'block';
   quizBtn3.style.display = 'block';
-  quizBtn4.style.display = 'block';  
+  quizBtn4.style.display = 'block'; 
+  quizBtn5.style.display = 'block';  
+  quizBtn6.style.display = 'block';  
+
   
 } else {
   quizBtn.style.display = 'none';
   quizBtn2.style.display = 'none';
   quizBtn3.style.display = 'none';
   quizBtn4.style.display = 'none';  
-  
+  quizBtn5.style.display = 'none';
+  quizBtn6.style.display = 'none';
 }
 
   });
