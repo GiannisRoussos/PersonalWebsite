@@ -175,18 +175,24 @@
 
     <!-- Άλγεβρα Α' Λυκείου: 7 Κεφάλαια -->
     <div id="lyk-1-alg-subjects" class="btn-group hidden">
-      <button data-sub="lyk-1-alg-ch1">Κεφάλαιο 1</button>
-      <button data-sub="lyk-1-alg-ch2">Κεφάλαιο 2</button>
-      <button data-sub="lyk-1-alg-ch3">Κεφάλαιο 3</button>
-      <button data-sub="lyk-1-alg-ch4">Κεφάλαιο 4</button>
-      <button data-sub="lyk-1-alg-ch5">Κεφάλαιο 5</button>
-      <button data-sub="lyk-1-alg-ch6">Κεφάλαιο 6</button>
-      <button data-sub="lyk-1-alg-ch7">Κεφάλαιο 7</button>
+      <button data-sub="lyk-1-alg-ch1">Κεφάλαιο 1: Πιθανότητες</button>
+      <button data-sub="lyk-1-alg-ch2">Κεφάλαιο 2: Οι Πραγματικοί Αριθμοί και Ιδιότητες</button>
+      <button data-sub="lyk-1-alg-ch3">Κεφάλαιο 3: Εξισώσεις</button>
+      <button data-sub="lyk-1-alg-ch4">Κεφάλαιο 4: Ανισώσεις</button>
+      <button data-sub="lyk-1-alg-ch5">Κεφάλαιο 5: Πρόοδοι</button>
+      <button data-sub="lyk-1-alg-ch6">Κεφάλαιο 6: Βασικές Έννοιες Συναρτήσεων</button>
+      <button data-sub="lyk-1-alg-ch7">Κεφάλαιο 7: Μελέτη Βασικών Συναρτήσεων</button>
     </div>
 
 <!--Σημειώσεις-->
 <!--Κεφ 1ο-->
     <ul id="lyk-1-alg-ch1-list"><li><a href="#">Ασκήσεις Κεφ.1 (PDF)</a></li></ul>
+
+
+
+
+<!--Κεφ 2ο-->
+    <ul id="lyk-1-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
 
 <button id="quiz-btn-1" onclick="window.location.href='tfq2.1.html'" 
   style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
@@ -215,10 +221,6 @@
 <button id="quiz-btn-6" onclick="window.location.href='tfq2.4.html'" 
   style="display:none; margin: 10px 0; padding:10px 20px; background:#800080; color:white; border:none; border-radius:5px; cursor:pointer; font-weight:600;">
   Quiz True-False 2.4. Ρίζες πραγματικών αριθμών </button>
-
-
-<!--Κεφ 2ο-->
-    <ul id="lyk-1-alg-ch2-list"><li><a href="#">Ασκήσεις Κεφ.2 (PDF)</a></li></ul>
 
 <!--Κεφ 3ο-->
     <ul id="lyk-1-alg-ch3-list"><li><a href="notes\math\lykeio1\alg\kef3\Εξισώσεις.pdf">Εξισώσεις (PDF)</a></li></ul>
@@ -491,7 +493,7 @@
 
 
 
-    const ch1List = document.getElementById('lyk-1-alg-ch1-list');
+    const ch1List = document.getElementById('lyk-1-alg-ch2-list');
 
     if (ch1List.classList.contains('visible')) {
   quizBtn.style.display = 'block';
